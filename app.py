@@ -50,9 +50,9 @@ def activities():
         # 2. 讀取學生的問題
         question = request.form.get('question', '').strip()
         # 3. 查詢題庫的對應答案
-        answer = "抱歉，我目前沒有這個詞的韓文對應。"
+        answer1 = "抱歉，我目前沒有這個詞的韓文對應。"
         # 4. 回傳答案給學生
-        return render_template('activities.html', question=question, answer=answer)
+        return render_template('activities.html', question=question, answer=answer1)
     # GET 時給空白欄位
     return render_template('activities.html', question="", answer="")
 
@@ -64,9 +64,8 @@ def stock():
         question = request.form.get('question', '').strip()
         # 3. 查詢股票號碼的對應股價
 
-        #answer = "抱歉，我目前沒有這個股票號碼。"
-            import requests
-    
+        answer = data["data"][-1][6]
+   
     
     # API URL
     url = f"https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&stockNo={stock_no}"
